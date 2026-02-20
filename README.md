@@ -5,7 +5,7 @@ Last Updated 2/17/2026
 
 ## Concepts
 
-In this project we show you how to download a project from GitHub, then build the project and upload to the M5Stack / Tab5 microcontroller.  The program will read from a TI INA3221 sensor via I2C and then output the data to the microcontroller LCD.  In this tutorial we implement flicker-free display technology powered by the M5Canvas function.
+In this project we show you how to download a project from GitHub, then build the project and upload to the M5Stack / Tab5 microcontroller.  The program will read from a TI INA3221 sensor via I2C and then output the data to the microcontroller LCD.  In this tutorial we implement flicker-free display technology powered by the M5Canvas function.  This is a basic text-only version of a UI.
 
 We also changed the metric to the Imperial Units of Freedom that allowed us to land on the moon.
 
@@ -43,7 +43,9 @@ platform = espressif32@~6.5.0; (or whatever version you want. 6.5–6.8 map to A
 
 2. Press the square white button twice to turn off the device.
 
-## Charging the Battery
+## The Battery
+
+The battery connections on the back of the M5Stack Tab5 are a standard Sony NP-F Lithium Ion battery (pretty much any capacity).  
 
 The battery only charges when the device is on and configured.
 
@@ -87,7 +89,7 @@ G29 - LRCK
 G32 - SCL
 G33 - SDA
 
-### LCD ILI9881C/ST7123
+### LCD ILI9881C (Old) / ST7123 (New post 2024)
 
 G22 - LEDA
 DSI_CLKN (Dedicated) - DSI_CK_N
@@ -160,6 +162,10 @@ G34 - DIR
 
 ### HY2.0-4P PORT A
 
+This is connected to Wire() by default - not to Wire1().
+
+This is now referenced as M5.Ex_I2C.begin(); in the M5Unified library.
+
 Black - GND
 Red - +5V
 Yellow - G53 - Ext SDA
@@ -167,10 +173,18 @@ White - G54 - Ext SCL
 
 ## I2C (Internal)
 
+This is referenced by Wire1() in Arduino / PlatformIO with Arduino framework.
+
+This is now referenced as   M5.In_I2C.begin(); in the M5Unified library.
+
 G32 - Int SCL
 G33 - Int SDA
 
 ### I2C (External - Port A)
+
+This is referenced by Wire() in Arduino / PlatformIO with Arduino framework.
+
+This is now referenced as M5.Ex_I2C.begin(); in the M5Unified library.
 
 G53 - Ext SCL
 G54 - Ext SDA
