@@ -27,6 +27,16 @@ Connect cable to sensor, then connect to red port on Microcontroller, which is c
 
 See the project files / docs folder for a PDF of the tutorial.
 
+
+
+## Texas Instruments INA32211 Sensor by Adafruit.com
+
+The library comes from Adafruit.com.  It can read voltage and current on three independent circuits, and then calculate power and other statistics from the data it gathers.  Each can be inserted either high-side or low-side.  
+
+It can measure voltage up to 26V with a resolution of 8mV/step (this is a Bus Voltage measurement).
+
+It can measure +/-3.2A with a resolution of 0.390625mA/step (this is a Shunt measurement) with its supplied 0.05 Ohm shunt resistors, or it can be modified for larger or smaller current ranges.  
+
 ## ESP32 Arduino Core 3.x Info
 
 This project updates the Arduino Core to v3.x.  This enables all kinds of things in ESP32 like the high-res GPTimer, the high-res RMT transmit/receive peripheral, and FreeRTOS.  Make sure the platform= line in the platformio.ini file looks like this:
@@ -37,15 +47,7 @@ If your other projects stop building after this update, it may be because they d
 
 platform = espressif32@~6.5.0; (or whatever version you want. 6.5–6.8 map to Arduino core 2.0.x)
 
-## Texas Instruments INA32211 Sensor by Adafruit.com
-
-The library comes from Adafruit.com.  It can read voltage and current on three independent circuits, and then calculate power and other statistics from the data it gathers.  Each can be inserted either high-side or low-side.  
-
-It can measure voltage up to 26V with a resolution of 8mV/step (this is a Bus Voltage measurement).
-
-It can measure +/-3.2A with a resolution of 0.390625mA/step (this is a Shunt measurement) with its supplied 0.05 Ohm shunt resistors, or it can be modified for larger or smaller current ranges.  
-
-## M5Stack Tab5 iNFO
+## M5Stack Tab5 Dev Board Information
 
 ### Turning the M5Stack Tab5 On and Off
 
