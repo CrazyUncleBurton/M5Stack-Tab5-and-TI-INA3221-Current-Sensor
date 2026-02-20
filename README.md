@@ -13,23 +13,34 @@ We also changed the metric to the Imperial Units of Freedom that allowed us to l
 
 Microcontroller:  M5Stack Tab5 (ESP32-P4NRW32@RISC-V 32-bit Dual-core 360MHz + LP Single-core 40MHz)
 Display:  5" (1280 x 720) IPS TFT LCD and ILI9881C controller with GT911 capacitive touch controller
-Sensor: INA3221 + 4 wire Grove to 0.025" female sockets cable
+Sensor: Adafruit INA3221
+Cable:  4 wire Grove to 0.025" female sockets cable
 
-Connect cable to sensor, then connect to red port on Microcontroller, which is connected to the PORTA I2C bus.
+Connect the cable to the pins on the sensor:
 
-## Prerequisites
+Sensor      Cable/Port
+VCC---------Red/VCC
+GND---------Black/GND
+SDA---------Yellow/SDA
+SCL---------White/SCL
 
-- Install VS Code
-- Install PlatformIO extension
-- Install Microsoft C/C++ Extension
+Then connect cable to the PORTA (the red port on the microcontroller) which is connected to the External I2C bus.  It is referenced as Wire(); in Arduino.
 
 ## Project Documentation
 
 See the project files / docs folder for a PDF of the tutorial.
 
-
-
 ## Texas Instruments INA32211 Sensor by Adafruit.com
+
+Connect the cable to the pins on the sensor:
+
+Sensor      Cable/Port
+VCC---------Red/VCC
+GND---------Black/GND
+SDA---------Yellow/SDA
+SCL---------White/SCL
+
+Then connect cable to the PORTA (the red port on the microcontroller) which is connected to the External I2C bus.  It is referenced as Wire(); in Arduino.
 
 The library comes from Adafruit.com.  It can read voltage and current on three independent circuits, and then calculate power and other statistics from the data it gathers.  Each can be inserted either high-side or low-side.  
 
