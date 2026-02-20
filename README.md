@@ -1,7 +1,7 @@
 # M5Stack-Tab5-and-TI-INA3221-Current-Sensor
 
 by Bryan A. "CrazyUncleBurton" Thompson
-Last Updated 2/17/2026
+Last Updated 2/19/2026
 
 ## Concepts
 
@@ -37,27 +37,35 @@ If your other projects stop building after this update, it may be because they d
 
 platform = espressif32@~6.5.0; (or whatever version you want. 6.5–6.8 map to Arduino core 2.0.x)
 
-## Turning the M5Stack Tab5 On and Off
+## Texas Instruments INA32211 Sensor by Adafruit.com
+
+The library comes from Adafruit.com.  It can read voltage and current on three independent circuits, and then calculate power and other statistics from the data it gathers.  Each can be inserted either high-side or low-side.  
+
+It can measure voltage up to 26V with a resolution of 8mV/step (this is a Bus Voltage measurement).
+
+It can measure +/-3.2A with a resolution of 0.390625mA/step (this is a Shunt measurement) with its supplied 0.05 Ohm shunt resistors, or it can be modified for larger or smaller current ranges.  
+
+## M5Stack Tab5 iNFO
+
+### Turning the M5Stack Tab5 On and Off
 
 1. Press the square white button once to turn on the device.
 
 2. Press the square white button twice to turn off the device.
 
-## The Battery
+### The Battery
 
 The battery connections on the back of the M5Stack Tab5 are a standard Sony NP-F Lithium Ion battery (pretty much any capacity).  
 
 The battery only charges when the device is on and configured.
 
-## Programming the M5Stack Tab5
-
 1. Enter Download Mode - With USB cable or battery connected, long‑press the Reset button (2 seconds) until the internal green LED rapidly blinks; release to enter download mode and await firmware flashing.
 
 2. Program like you would any other VS Code Project.  Click the PlatformIO:Upload button (shaped like a right arrow).
 
-## Tab5 Pin Map
+### Pin Map
 
-### Camera
+#### Camera
 
 G32 - Camera SCL
 G33 - Camera SDA
@@ -69,7 +77,7 @@ CSI_CLKN (Dedicated) - CAM_CSI_CKN
 CSI_DATAP0 (Dedicated) - CSI_DOP
 CSI_DATAN0 (Dedicated) - CSI_DON
 
-### ES8388 2 Channel Audio Codec
+#### ES8388 2 Channel Audio Codec
 
 ES8388 (0x10)
 G30 - MCLK
@@ -79,7 +87,7 @@ G29 - LRCK
 G32 - SCL
 G33 - SDA
 
-## ES7210 4 CH ADC 24-bit Possible Mic Array
+#### ES7210 4 CH ADC 24-bit Possible Mic Array
 
 ES7210 (0x40)
 G30 - MCLK
@@ -89,7 +97,7 @@ G29 - LRCK
 G32 - SCL
 G33 - SDA
 
-### LCD ILI9881C (Old) / ST7123 (New post 2024)
+#### LCD ILI9881C (Old) / ST7123 (New post 2024)
 
 G22 - LEDA
 DSI_CLKN (Dedicated) - DSI_CK_N
@@ -99,7 +107,7 @@ DSI_DATAP1 (Dedicated) - DSI_D1_P
 DSI_DATAN0 (Dedicated) - DSI_D0_N
 DSI_DATAP0 (Dedicated) - DSI_D0_P
 
-### Touch
+#### Touch
 
 GT911 (0x14) / ST7123 (0x55)
 G31 - SDA
@@ -107,25 +115,25 @@ G32 - SCL
 G23 - TP_INT
 E1.P5 - TP_RST
 
-### BMI270
+#### BMI270
 
 BMI270 (0x68)
 G32 - SCL
 G31 - SDA
 
-### RTC(RX8130CE)
+#### RTC(RX8130CE)
 
 RX8130CE (0x32)
 G32 - SCL
 G31 - SDA
 
-### INA226
+#### INA226
 
 INA226 (0x40)
 G32 - SCL
 G31 - SDA
 
-### ESP32-C6
+#### ESP32-C6
 
 G11 - SDIO2_D0
 G10 - SDIO2_D1
@@ -137,7 +145,7 @@ G15 - RESET
 G14 - IO2
 G35 - BOOT
 
-### microSD
+#### microSD
 
 microSD SPI Mode
 G9 - MISO
@@ -153,14 +161,14 @@ G42 - DAT3
 G43 - CLK
 G44 - CMD
 
-### RS485
+#### RS485
 
 SIT3088
 G21 - RX
 G20 - TX
 G34 - DIR
 
-### HY2.0-4P PORT A
+#### HY2.0-4P PORT A
 
 This is connected to Wire() by default - not to Wire1().
 
@@ -171,7 +179,7 @@ Red - +5V
 Yellow - G53 - Ext SDA
 White - G54 - Ext SCL
 
-## I2C (Internal)
+#### I2C (Internal)
 
 This is referenced by Wire1() in Arduino / PlatformIO with Arduino framework.
 
@@ -180,7 +188,7 @@ This is now referenced as   M5.In_I2C.begin(); in the M5Unified library.
 G32 - Int SCL
 G33 - Int SDA
 
-### I2C (External - Port A)
+#### I2C (External - Port A)
 
 This is referenced by Wire() in Arduino / PlatformIO with Arduino framework.
 
@@ -189,18 +197,18 @@ This is now referenced as M5.Ex_I2C.begin(); in the M5Unified library.
 G53 - Ext SCL
 G54 - Ext SDA
 
-### SPI
+#### SPI
 
 G18 - MOSI
 G19 - MISO
 G5 - SCK
 
-### Serial
+#### Serial
 
 RXD0 - G38
 TXD0 - G37
 
-### M5Bus
+#### M5Bus (Rear)
 
 Note:  The bus is the same layout as the old CORE2 bus with old GPIO map
 Pin 1 - GND
@@ -234,7 +242,7 @@ Pin 28 - 5V
 Pin 29 - HVIN
 Pin 30 - BAT
 
-### Ext Port 1
+#### Ext Port 1 (Side)
 
 G50
 G1
@@ -247,7 +255,7 @@ EXT 5V
 G0
 G49
 
-### Ext Port 2 - RS485
+#### Ext Port 2 - RS485 (Rear)
 
 Pin 1 - Black - GND
 Pin 2 - Red - HVIN
@@ -256,21 +264,21 @@ Pin 4 - Green - 485B
 Pin 5 - White - SDA - G32
 Pin 6 - Blue - SCL - G32
 
-### USB C Ext
+#### USB C Ext (Side)
 
 Pin 1 - USB1_D+
 Pin 2 - USB1_D-
 Pin 3 - GND
 Pin 4 - 5VIN
 
-## Texas Instruments INA32211 Sensor by Adafruit.com
-
-The library comes from Adafruit.com.  It can read voltage and current on three independent circuits, and then calculate power and other statistics from the data it gathers.  Each can be inserted either high-side or low-side.  It can measure voltage up to +/-26V, even though it is only powered by +5V.  It can measure +/-3.2A with a resolution of 13 bits / 0.4mA with its supplied 0.05 Ohm shunt resistors, or it can be modified for larger or smaller current ranges.  
-
 ## References
 
-Microcontroller Info:
+Dev Board Info:
 <https://docs.m5stack.com/en/core/Tab5>
+
+Microcontroller Info:
+<https://www.espressif.com/en/products/socs/esp32-p4>
+<https://www.espressif.com/en/support/documents/technical-documents?keys=&field_type_tid_parent=esp32P4Series-SoCs&field_type_tid%5B%5D=1633>
 
 Adafruit INA3221 Sensor Board Info:
 <https://learn.adafruit.com/adafruit-ina3221-breakout>

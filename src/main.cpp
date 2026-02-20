@@ -106,7 +106,7 @@ void drawDashboard()
     float voltage = ina3221.getBusVoltage(i);
     float current = ina3221.getCurrentAmps(i) * 1000; // Convert to mA
     canvas.setCursor(x, y);
-    canvas.printf("Channel%d Voltage=%.2fV Current=%.2fmA", i, voltage, current);
+    canvas.printf("Channel %d Voltage = %.2fV Current = %.2fmA", i, voltage, current);
     y += lineHeight;
   }
 
