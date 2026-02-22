@@ -84,9 +84,6 @@ void setup()
     ina3221.setShuntResistance(i, 0.05);
   }
 
-  // Set a power valid alert to tell us if ALL channels are between the two limits:
-  ina3221.setPowerValidLimits(3.0 /* lower limit */, 15.0 /* upper limit */);
-
   // Make canvas visible on LCD
   canvas.pushSprite(0, 0);
   delay(3000);
