@@ -1,11 +1,14 @@
-# M5Stack-Tab5-and-TI-INA3221-Current-Sensor
+# M5Stack-Tab5-Energy-Monitor
+M5Stack Tab5 Energy Monitor for TI INA3221 Current Sensor Squareline LVGL UI
+
+# M5Stack-Tab5_and-TI-INA3221-Current-Sensor_with-SLS-and-LVGL
 
 by Bryan A. "CrazyUncleBurton" Thompson
-Last Updated 2/19/2026
+Last Updated 2/28/2026
 
 ## Concepts
 
-In this project we show you how to download a project from GitHub, then build the project and upload to the M5Stack / Tab5 microcontroller.  The program will read from a TI INA3221 sensor via I2C and then output the data to the microcontroller LCD.  In this tutorial we implement flicker-free display technology powered by the M5Canvas function.  This is a basic text-only version of a UI.
+In this project we show you how to download a project from GitHub, then build the project and upload to the M5Stack / Tab5 microcontroller.  The program will read from a TI INA3221 sensor via I2C and then output the data to the microcontroller LCD. The UI has been updated to an LVGL / Squareline Studio project - a demo for the Tab5 by NikTheFix.  I used it as a starting point and modified it for our purposes.
 
 We also changed the metric to the Imperial Units of Freedom that allowed us to land on the moon.
 
@@ -47,16 +50,6 @@ The library comes from Adafruit.com.  It can read voltage and current on three i
 It can measure voltage up to 26V with a resolution of 8mV/step (this is a Bus Voltage measurement).
 
 It can measure +/-3.2A with a resolution of 0.390625mA/step (this is a Shunt measurement) with its supplied 0.05 Ohm shunt resistors, or it can be modified for larger or smaller current ranges.  
-
-## ESP32 Arduino Core 3.x Info
-
-This project updates the Arduino Core to v3.x.  This enables all kinds of things in ESP32 like the high-res GPTimer, the high-res RMT transmit/receive peripheral, and FreeRTOS.  Make sure the platform= line in the platformio.ini file looks like this:
-
-platform = https://github.com/pioarduino/platform-espressif32.git#54.03.20; (Arduino Core 3.x)
-
-If your other projects stop building after this update, it may be because they don't explicitly state that they are intended for an older version of the Arduino Core. To do that, update the platformio.ini file and replace the platform line in the older project(s) with this:
-
-platform = espressif32@~6.5.0; (or whatever version you want. 6.5–6.8 map to Arduino core 2.0.x)
 
 ## M5Stack Tab5 Dev Board Information
 
@@ -284,6 +277,16 @@ Pin 2 - USB1_D-
 Pin 3 - GND
 Pin 4 - 5VIN
 
+## ESP32 Arduino Core 3.x Info
+
+This project updates the Arduino Core to v3.x.  This enables all kinds of things in ESP32 like the high-res GPTimer, the high-res RMT transmit/receive peripheral, and FreeRTOS.  Make sure the platform= line in the platformio.ini file looks like this:
+
+platform = https://github.com/pioarduino/platform-espressif32.git#54.03.20; (Arduino Core 3.x)
+
+If your other projects stop building after this update, it may be because they don't explicitly state that they are intended for an older version of the Arduino Core. To do that, update the platformio.ini file and replace the platform line in the older project(s) with this:
+
+platform = espressif32@~6.5.0; (or whatever version you want. 6.5–6.8 map to Arduino core 2.0.x)
+
 ## References
 
 Dev Board Info:
@@ -302,5 +305,11 @@ Texas Instruments INA3221 Sensor Data Sheet:
 M5GFX Display Library:
 <https://docs.m5stack.com/en/arduino/m5gfx/m5gfx_functions>
 
-M5Canvas:
-<https://docs.m5stack.com/en/arduino/m5gfx/m5gfx_canvas>
+LVGL:
+<https://lvgl.io/>
+
+LVGL Demo Project:
+<https://github.com/nikthefix/M5Stack_Tab5_Arduino_Basic_LVGL_Demo>
+
+SquareLine Studios UI Creator (we need v8.33-8.4):
+<https://squareline.io/downloads>
